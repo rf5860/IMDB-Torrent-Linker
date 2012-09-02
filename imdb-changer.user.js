@@ -102,4 +102,5 @@ GM_xmlhttpRequest({
 													    tr.append('<td>' + peersData);
 													    tbody.append(tr);});
 			  table.append(tbody);
+			  $('.detName > [href]').each(function(i, data) { data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));});
 		      }});
