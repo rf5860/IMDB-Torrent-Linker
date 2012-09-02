@@ -56,7 +56,10 @@ var articles = $('#maindetails_center_bottom > .article');
 articles.splice(1,1);
 articles.remove();
 // Add torrent section
-var url = ("http://thepiratebay.se/search/" + $('.header').text().replace($('.header > .nobr').text(), '').trim() + "/0/7/0").replace(/ /g, '%20');
+var headerText = $('.header').text();
+var year = $('.header > .nobr').text();
+var title = headerText.substring(0, headerText.lastIndexOf(year)).trim().replace(/ /g, '%20');
+var url = ("http://thepiratebay.se/search/" + title + "/0/7/0").replace(/ /g, '%20');
 var elem = $('<div id="torrents">');
 $('.title-overview').css({'width': '50%', 'float': 'left'}).parent().append(elem);
 var thead = $('<thead><tr><th>Torrent</th><th>Seeders / Leechers</th>');
