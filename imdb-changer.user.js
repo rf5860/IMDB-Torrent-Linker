@@ -3,7 +3,6 @@
 // @description	  Modifies IMDB
 // @include       http://www.imdb.com/title/*
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js
-// @require       http://php2go.googlecode.com/svn/branches/reboot/php2go/library/jquery/jquery.xdomainajax.js
 // @author        WMA
 // ==/UserScript==
 // Style
