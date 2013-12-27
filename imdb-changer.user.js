@@ -61,5 +61,5 @@ GM_xmlhttpRequest({
       tr.append('<td>' + peersData);
       tbody.append(tr);});
     table.append(tbody);
-    $('.detLink > [href]').each(function(i, data) { data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));});
+    $('.detLink').each(function(i, data) { data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));});
   }});
