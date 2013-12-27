@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name          IMDB Modifier
-// @description	  Modifies IMDB
+// @name          IMDB Torrent Linker
+// @description	  Modifies IMDB to search Pirate Bay
 // @include       http://www.imdb.com/title/*
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js
 // @author        WMA
@@ -54,10 +54,12 @@ GM_xmlhttpRequest({
       var peers = $(data).find('[align="right"]');
       var peersData = peers[0].innerText + "/" + peers[1].innerText;
       var link = $(data).find('.detName > .detLink').parent()[0].innerHTML;
+      var originalMagnetLink = $(data).find('a[title="Download this torrent using magnet"]')
       var tr = $('<tr>');
-      tr.append('<td>' + link);
+      var magnetLink = '<a href="' + originalMagnetLink.attr('href') + '" title="' + originalMagnetLink.attr('title') + '"><img src="http://thepiratebay.se/static/img/icon-magnet.gif" alt="Magnet Link"</a>';
+      tr.append('<td>' + link + magnetLink);
       tr.append('<td>' + peersData);
       tbody.append(tr);});
     table.append(tbody);
-    $('.detName > [href]').each(function(i, data) { data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));});
+    $('.detLink > [href]').each(function(i, data) { data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));});
   }});
