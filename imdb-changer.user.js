@@ -40,7 +40,7 @@ vertical-align: top;\
 ');
 $('#maindetails_center_top').css('margin-bottom', '0px');
 var title = $('.header > span[itemprop="name"]').text();
-var url = encodeURI("http://thepiratebay.se/search/" + title + "/0/7/0")
+var url = encodeURI("http://oldpiratebay.org/search.php?q=" + title + "&Torrent_sort=seeders.desc")
 var elem = $('<div id="torrents" class="maindetails_center" style="margin-bottom: 400px">').insertBefore($('#maindetails_center_bottom'));
 var thead = $('<thead><tr><th>Torrent</th><th>Seeders / Leechers</th>');
 var table = $('<table class="torrent-table">').append(thead);
@@ -61,5 +61,4 @@ GM_xmlhttpRequest({
       tr.append('<td>' + peersData);
       tbody.append(tr);});
     table.append(tbody);
-    $('.detLink').each(function(i, data) { data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));});
   }});
