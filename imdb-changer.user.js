@@ -51,12 +51,14 @@ GM_xmlhttpRequest({
   onload: function(response) {
     var tbody = $('<tbody>');
     $(response.responseText).find('.table-torrents>tbody').find('tr:not(".header")').each(function(i, data) {
-      var peers = $(data).find('[align="right"]');
-      var peersData = peers[0].innerText + "/" + peers[1].innerText;
-      var link = $(data).find('.detName > .detLink').parent()[0].innerHTML;
-      var originalMagnetLink = $(data).find('a[title="Download this torrent using magnet"]')
+      var leechers = $(data).find('.ly');
+      var seeders = $(data).find('.sy');
+      var peersData = seeders.innerText + "/" + leechers.innerText;
+      var link = $(data).find('.title-row > a').innerHTML;
+      var title = $(data).find('.title-row > a > span').innerText
+      var originalMagnetLink = $(data).find('a[title="MAGNET LINK"]')
       var tr = $('<tr>');
-      var magnetLink = '<a href="' + originalMagnetLink.attr('href') + '" title="' + originalMagnetLink.attr('title') + '"><img src="http://thepiratebay.se/static/img/icon-magnet.gif" alt="Magnet Link"</a>';
+      var magnetLink = '<a href=http://oldpiratebay.org/"' + originalMagnetLink.attr('href') + '" title="' + title + '"><img src="http://oldpiratebay.org/tpbimg/icons/magnet.png" alt="Magnet Link"</a>';
       tr.append('<td>' + link + magnetLink);
       tr.append('<td>' + peersData);
       tbody.append(tr);});
