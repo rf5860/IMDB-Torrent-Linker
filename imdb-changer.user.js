@@ -58,7 +58,7 @@ GM_xmlhttpRequest({
       var originalMagnetLink = $(data).find('a[title="MAGNET LINK"]');
       var link = $(data).find('td.title-row > a')[0].outerHTML;
       var tr = $('<tr>');
-      var magnetLink = '<a href="http://oldpiratebay.org/' + originalMagnetLink.attr('href') + '" title="' + title + '"><img src="http://oldpiratebay.org/tpbimg/icons/magnet.png" alt="Magnet Link"</a>';
+      var magnetLink = '<a href="' + originalMagnetLink.attr('href') + '" title="' + title + '"><img src="http://oldpiratebay.org/tpbimg/icons/magnet.png" alt="Magnet Link"</a>';
       tr.append('<td>' + link + magnetLink);
       tr.append('<td>' + peersData);
       tbody.append(tr);});
