@@ -50,7 +50,7 @@ GM_xmlhttpRequest({
   url: url,
   onload: function(response) {
     var tbody = $('<tbody>');
-    $(response.responseText).find('#searchResult').find('tr:not(".header")').each(function(i, data) {
+    $(response.responseText).find('.table-torrents>tbody').find('tr:not(".header")').each(function(i, data) {
       var peers = $(data).find('[align="right"]');
       var peersData = peers[0].innerText + "/" + peers[1].innerText;
       var link = $(data).find('.detName > .detLink').parent()[0].innerHTML;
@@ -61,4 +61,5 @@ GM_xmlhttpRequest({
       tr.append('<td>' + peersData);
       tbody.append(tr);});
     table.append(tbody);
+    $('a[title="MAGNET LINK"]').each(function(i, data) { data.setAttribute("href", "http://oldpiratebay.org" + data.getAttribute("href"));});
   }});
