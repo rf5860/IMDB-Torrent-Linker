@@ -51,16 +51,17 @@ GM_xmlhttpRequest({
   onload: function(response) {
     var tbody = $('<tbody>');
     $(response.responseText).find('.table-torrents>tbody>tr').each(function(i, data) {
-      var leechers = $(data).find('td.ly');
-      var seeders = $(data).find('td.sy');
-      var peersData = seeders.innerText + "/" + leechers.innerText;
-      var link = $(data).find('td.title-row > a').innerHTML;
-      var title = $(data).find('td.title-row > a > span').innerText
-      var originalMagnetLink = $(data).find('a[title="MAGNET LINK"]')
+      var leechers = $(data).find('td.ly').text();
+      var seeders = $(data).find('td.sy').text();
+      var peersData = seeders + "/" + leechers;
+      var title = $(data).find('td.title-row > a');
+      var originalMagnetLink = $(data).find('a[title="MAGNET LINK"]');
+      var link = $(data).find('td.title-row > a')[0].outerHTML;
       var tr = $('<tr>');
-      var magnetLink = '<a href=http://oldpiratebay.org/"' + originalMagnetLink.attr('href') + '" title="' + title + '"><img src="http://oldpiratebay.org/tpbimg/icons/magnet.png" alt="Magnet Link"</a>';
+      var magnetLink = '<a href="http://oldpiratebay.org/' + originalMagnetLink.attr('href') + '" title="' + title + '"><img src="http://oldpiratebay.org/tpbimg/icons/magnet.png" alt="Magnet Link"</a>';
       tr.append('<td>' + link + magnetLink);
       tr.append('<td>' + peersData);
       tbody.append(tr);});
     table.append(tbody);
+    $('.torrent-table>tbody>tr>td>a').each(function(i, data) { if (i==0){data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));}});
   }});
