@@ -58,10 +58,10 @@ GM_xmlhttpRequest({
       var originalMagnetLink = $(data).find('a[title="MAGNET LINK"]');
       var link = $(data).find('td.title-row > a')[0].outerHTML;
       var tr = $('<tr>');
-      var magnetLink = '<a href="' + originalMagnetLink.attr('href') + '" title="' + title + '"><img src="http://oldpiratebay.org/tpbimg/icons/magnet.png" alt="Magnet Link"</a>';
+      var magnetLink = '<a href="' + originalMagnetLink.attr('href') + '" title="' + title + '"><img src="http://oldpiratebay.org/img/icons/magnet.png" alt="Magnet Link"</a>';
       tr.append('<td>' + link + magnetLink);
       tr.append('<td>' + peersData);
       tbody.append(tr);});
     table.append(tbody);
-    $('.torrent-table>tbody>tr>td>a').each(function(i, data) { if (i==0){data.setAttribute("href", "http://thepiratebay.se" + data.getAttribute("href"));}});
+    $('.torrent-table>tbody>tr>td>a').each(function(i, data) { if (i==0){data.setAttribute("href", "http://oldpiratebay.org" + data.getAttribute("href"));}});
   }});
