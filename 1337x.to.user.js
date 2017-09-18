@@ -20,7 +20,8 @@ GM_xmlhttpRequest({
     linksTable.querySelector('th.coll-1').textContent = 'Name';
     linksTable.querySelector('th.coll-2').textContent = 'Seeders';
     linksTable.querySelector('th.coll-3').textContent = 'Leechers';
+    linksTable.querySelectorAll('td>a.icon').forEach(e => e.remove());
+    linksTable.querySelectorAll('td>a').forEach(a => { a.protocol = 'https:'; a.host = '1337x.to'; });
     parentElem.insertBefore(linksTable, siblingElem);
-    linksTable.querySelectorAll('td>a').forEach(a => a.href = a.href.replace(/^http.?:\/\/www.imdb.com/, 'https://1337x.to'));
   }
 });
