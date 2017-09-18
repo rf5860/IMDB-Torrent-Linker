@@ -7,10 +7,10 @@
 Adds an line list of torrents for the current movie, sorted by seeders.
 
 With script:
-![Post](postx.png)
+![Post](imgs/PostX.png)
 
 Without script:
-![Pre](prex.png)
+![Pre](imgs/PreX.png)
 
 ## Installation Details
 
